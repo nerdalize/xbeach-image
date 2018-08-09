@@ -1,7 +1,8 @@
 FROM deltares/xbeach
 
-CMD /data/run.sh
+# ADD entrypoint.sh /entrypoint.sh
+# RUN chmod +x /entrypoint.sh
+#
+# ENTRYPOINT ["/entrypoint.sh"]
 
-ADD entrypoint.sh /entrypoint.sh
-
-ENTRYPOINT ["/entrypoint.sh"]
+CMD ["/bin/sh","-c","cd /data; chmod +x run.sh; ./run.sh"]
